@@ -1,4 +1,4 @@
-import './plugins/axios'
+import axios from './plugins/axios'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -7,4 +7,7 @@ import format_str from './utils/format_str'
 visual_div.install()
 format_str.install()
 
-createApp(App).use(router).mount('#app')
+createApp(App)
+    .use(router)
+    .use(axios)
+    .mount('#app')
