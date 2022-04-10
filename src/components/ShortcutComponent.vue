@@ -35,7 +35,7 @@ export default {
   align-items: center;
 
   animation: bounceInUp;
-  animation-duration: 2s;
+  animation-duration: 1s;
 
   .icon {
     display: flex;

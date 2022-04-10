@@ -5,11 +5,11 @@
     <div class="container">
       <logo-component class="logo"></logo-component>
       <search-component class="search"
-                        :left-icon="searchEngineIcon"
-                        :right-icon="qrcodeIcon"
+                        :left-icons="engines.data"
+                        :right-icons="[qrcodeIcon]"
                         :placeholder="placeholder"
       ></search-component>
-      <shortcuts-component :data="shortcuts"></shortcuts-component>
+      <shortcuts-component :data="shortcuts.data"></shortcuts-component>
     </div>
   </div>
 </template>
@@ -54,26 +54,45 @@ export default {
   data() {
     return {
       background: "wallhaven-wq6jdr-center.png",
-      searchEngineIcon: "N.svg",
       qrcodeIcon: "qrcode.svg",
       placeholder: "搜索网址的标题、描述或者链接",
-      shortcuts: [],
-      next_cursor: undefined,
-      limit: 9,
+      shortcuts: {
+        next_cursor: null,
+        limit: 9,
+        data: [],
+      },
+      engines: {
+        next_cursor: null,
+        limit: 4,
+        data: [],
+      }
     }
   },
   created() {
     window.watch_win()
 
     this.$axios.post("/shortcuts", JSON.stringify({
-      cursor: this.next_cursor,
-      limit: this.limit,
+      cursor: this.shortcuts.next_cursor,
+      limit: this.shortcuts.limit,
     }), {
       headers: {
         "Content-Type": "application/json",
       },
     }).then(res => {
-      this.shortcuts = res.data.shortcuts
+      this.shortcuts.data = res.data.shortcuts
+      this.shortcuts.next_cursor = res.data.next_cursor
+    })
+
+    this.$axios.post("/engines", JSON.stringify({
+      cursor: this.engines.next_cursor,
+      limit: this.engines.limit,
+    }), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(res => {
+      this.engines.data = res.data.engines
+      this.engines.next_cursor = res.data.next_cursor
     })
   },
 }

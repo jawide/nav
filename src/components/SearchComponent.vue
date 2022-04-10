@@ -1,30 +1,52 @@
 <template>
   <div class="search">
     <div class="box">
-      <img v-if="leftIcon" :src="leftIcon" alt=""/>
+      <select-component @select="changeEngine">
+        <template v-slot:show>
+          <img v-if="leftIcons.length>0" :src="leftIcons[currentLeftIcon].icon" alt=""/>
+        </template>
+        <div class="option" v-bind:key="index" v-for="index in leftIcons.length">
+          <img v-if="leftIcons.length>0" :src="leftIcons[index-1].icon" alt=""/>
+          <p>{{ leftIcons[index - 1].text }}</p>
+        </div>
+      </select-component>
       <div class="input">
         <input :placeholder="placeholder"/>
       </div>
-      <img v-if="rightIcon" :src="rightIcon" alt=""/>
+      <img v-if="rightIcons.length>0" :src="rightIcons[currentRightIcon]" alt=""/>
     </div>
   </div>
 </template>
 
 <script>
+import SelectComponent from "@/components/SelectComponent";
+
 export default {
   name: "SearchComponent",
+  components: {SelectComponent},
   props: {
-    leftIcon: {
-      type: String,
+    leftIcons: {
+      type: Array,
       required: true,
     },
-    rightIcon: {
-      type: String,
+    rightIcons: {
+      type: Array,
       required: true,
     },
     placeholder: {
       type: String,
       default: "",
+    },
+  },
+  data() {
+    return {
+      currentLeftIcon: 0,
+      currentRightIcon: 0,
+    }
+  },
+  methods: {
+    changeEngine(i){
+      this.currentLeftIcon = i;
     }
   }
 }
@@ -40,7 +62,7 @@ export default {
   flex-basis: 11rem;
 
   animation: bounceInLeft;
-  animation-duration: 2s;
+  animation-duration: 1s;
 
   .box {
     display: flex;
@@ -49,17 +71,23 @@ export default {
     align-items: center;
     position: relative;
 
+    .option {
+      img{
+        margin-right: 0.5rem;
+      }
+    }
+
     img {
       flex-shrink: 1;
     }
 
-    .input{
+    .input {
       flex-grow: 1;
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
-      input{
+      input {
         flex-grow: 1;
         background: none;
         outline: none;
