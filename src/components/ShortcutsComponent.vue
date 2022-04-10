@@ -33,8 +33,8 @@ export default {
 @import "~@/styles/common.scss";
 
 .shortcuts {
-  @include shortcuts-field;
   flex-grow: 1;
+  width: $box-width;
 
   display: flex;
   flex-flow: column nowrap;
@@ -46,6 +46,11 @@ export default {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 1.5rem;
+
+    &:last-child {
+      padding: 0 2.5rem;
+    }
   }
 }
 </style>

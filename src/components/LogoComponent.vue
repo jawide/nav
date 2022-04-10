@@ -21,7 +21,13 @@ export default {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: flex-end;
-  @include logo-field;
+  flex-basis: 17rem;
+  width: $box-width;
+
+  img {
+    width: 3rem;
+    margin: 0 0.3rem;
+  }
 
   animation: bounceInDown;
   animation-duration: 1s;

@@ -28,11 +28,16 @@ export default {
 @import "~@/styles/common.scss";
 
 .shortcut {
-  @include shortcut-field;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  width: 4rem;
+
+  p {
+    color: white;
+    font-size: 10px;
+  }
 
   animation: bounceInUp;
   animation-duration: 1s;
@@ -43,6 +48,15 @@ export default {
     align-items: center;
     position: relative;
     overflow: hidden;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: white;
+    border-radius: 1.25rem;
+    box-shadow: $normal-box-shadow;
+
+    img {
+      width: 80%;
+    }
 
     &:hover {
       animation: bounce;

@@ -69,10 +69,10 @@ export default {
 @import "~@/styles/common.scss";
 
 .search {
-  @include search-field;
   display: flex;
   justify-content: center;
   flex-basis: 11rem;
+  width: $box-width;
 
   animation: bounceInLeft;
   animation-duration: 1s;
@@ -83,6 +83,13 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
+    height: 2rem;
+    padding: 0.3rem 0.7rem;
+    top: 3rem;
+    border-radius: 2rem;
+    background-color: white;
+    box-shadow: $normal-box-shadow;
 
     .option {
       img{
@@ -94,6 +101,8 @@ export default {
 
     img {
       flex-shrink: 1;
+      width: 1rem;
+      height: auto;
     }
 
     .input {
@@ -101,6 +110,7 @@ export default {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      margin: 0 0.7rem;
 
       input {
         flex-grow: 1;
