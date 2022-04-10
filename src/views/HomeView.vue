@@ -6,7 +6,7 @@
       <logo-component class="logo"></logo-component>
       <search-component class="search"
                         :left-icons="engines.data"
-                        :right-icons="[qrcodeIcon]"
+                        :right-icons="[qrcodeIcon, searchIcon]"
                         :placeholder="placeholder"
       ></search-component>
       <shortcuts-component :data="shortcuts.data"></shortcuts-component>
@@ -55,6 +55,7 @@ export default {
     return {
       background: "wallhaven-wq6jdr-center.png",
       qrcodeIcon: "qrcode.svg",
+      searchIcon: "search.svg",
       placeholder: "搜索网址的标题、描述或者链接",
       shortcuts: {
         next_cursor: null,

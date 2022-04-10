@@ -11,7 +11,7 @@
         </div>
       </select-component>
       <div class="input">
-        <input :placeholder="placeholder"/>
+        <input :placeholder="placeholder" @input="instantSearch" @focusin="currentRightIcon=1" @focusout="currentRightIcon=0"/>
       </div>
       <img v-if="rightIcons.length>0" :src="rightIcons[currentRightIcon]" alt=""/>
     </div>
@@ -47,6 +47,11 @@ export default {
   methods: {
     changeEngine(i){
       this.currentLeftIcon = i;
+    },
+    instantSearch(){
+    },
+    changeRightIcon(e){
+      console.log(e)
     }
   }
 }
