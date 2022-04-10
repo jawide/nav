@@ -8,6 +8,9 @@
                         :left-icons="engines.data"
                         :right-icons="[qrcodeIcon, searchIcon]"
                         :placeholder="placeholder"
+                        @instantSearch="instantSearch"
+                        @fullSearch="fullSearch"
+                        ref="search"
       ></search-component>
       <shortcuts-component :data="shortcuts.data"></shortcuts-component>
     </div>
@@ -96,5 +99,13 @@ export default {
       this.engines.next_cursor = res.data.next_cursor
     })
   },
+  methods: {
+    instantSearch(){
+    },
+    fullSearch(val){
+      const engine = this.engines.data[this.$refs.search.currentLeftIcon];
+      window.open(engine.url.format(val))
+    },
+  }
 }
 </script>

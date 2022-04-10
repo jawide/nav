@@ -11,9 +11,16 @@
         </div>
       </select-component>
       <div class="input">
-        <input :placeholder="placeholder" @input="instantSearch" @focusin="currentRightIcon=1" @focusout="currentRightIcon=0"/>
+        <input
+            :placeholder="placeholder"
+            @input="instantSearch"
+            @focusin="currentRightIcon=1"
+            @focusout="currentRightIcon=0"
+            @keyup.enter="fullSearch"
+            ref="input"
+        />
       </div>
-      <img v-if="rightIcons.length>0" :src="rightIcons[currentRightIcon]" alt=""/>
+      <img v-if="rightIcons.length>0" :src="rightIcons[currentRightIcon]" alt="" @click="fullSearch"/>
     </div>
   </div>
 </template>
@@ -48,10 +55,11 @@ export default {
     changeEngine(i){
       this.currentLeftIcon = i;
     },
-    instantSearch(){
+    instantSearch(e){
+      this.$emit("instantSearch", e.target.value)
     },
-    changeRightIcon(e){
-      console.log(e)
+    fullSearch(){
+      this.$emit("fullSearch", this.$refs.input.value)
     }
   }
 }
