@@ -29,6 +29,9 @@ export default {
   justify-content: center;
   align-items: center;
 
+  animation: bounceInUp;
+  animation-duration: 2s;
+
   .icon {
     display: flex;
     justify-content: center;
@@ -37,4 +40,5 @@ export default {
     overflow: hidden;
   }
 }
+
 </style>

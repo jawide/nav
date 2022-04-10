@@ -39,6 +39,9 @@ export default {
   justify-content: center;
   flex-basis: 11rem;
 
+  animation: bounceInLeft;
+  animation-duration: 2s;
+
   .box {
     display: flex;
     flex-flow: row nowrap;

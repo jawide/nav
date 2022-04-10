@@ -22,5 +22,8 @@ export default {
   justify-content: center;
   align-items: flex-end;
   @include logo-field;
+
+  animation: bounceInDown;
+  animation-duration: 1s;
 }
 </style>
