@@ -78,6 +78,8 @@ export default {
 
     .option {
       img{
+        width: 1rem;
+        height: 1rem;
         margin-right: 0.5rem;
       }
     }
