@@ -1,6 +1,6 @@
 <template>
   <div class="shortcut">
-    <div class="icon">
+    <div class="icon" @click="to">
       <img :src="data.icon" :alt="data.text[0]"/>
     </div>
     <p>{{ data.text }}</p>
@@ -14,6 +14,11 @@ export default {
     data: {
       type: Object,
       required: true,
+    }
+  },
+  methods: {
+    to() {
+      window.open(this.data.url)
     }
   }
 }
@@ -38,6 +43,11 @@ export default {
     align-items: center;
     position: relative;
     overflow: hidden;
+
+    &:hover {
+      animation: bounce;
+      animation-duration: 1s;
+    }
   }
 }
 
