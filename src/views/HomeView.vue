@@ -55,7 +55,7 @@ export default {
   },
   data() {
     return {
-      background: "/image/wallhaven-wq6jdr-center.png",
+      background: "/image/wallhaven-wq6jdr-center-3.36mb.png",
       placeholder: "搜索网址的标题、描述或者链接",
       shortcuts: {
         next_cursor: null,
