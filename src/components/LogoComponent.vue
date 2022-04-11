@@ -1,9 +1,9 @@
 <template>
   <div class="logo">
-    <img src="J.svg" alt="J"/>
-    <img src="N.svg" alt="N"/>
-    <img src="A.svg" alt="A"/>
-    <img src="V.svg" alt="V"/>
+    <img src="/image/J.svg" alt="J"/>
+    <img src="/image/N.svg" alt="N"/>
+    <img src="/image/A.svg" alt="A"/>
+    <img src="/image/V.svg" alt="V"/>
   </div>
 </template>
 

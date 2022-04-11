@@ -14,13 +14,14 @@
         <input
             :placeholder="placeholder"
             @input="instantSearch"
-            @focusin="currentRightIcon=1"
-            @focusout="currentRightIcon=0"
+            @focusin="inputFlag=true"
+            @focusout="inputFlag=false"
             @keyup.enter="fullSearch"
             ref="input"
         />
       </div>
-      <img v-if="rightIcons.length>0" :src="rightIcons[currentRightIcon]" alt="" @click="fullSearch"/>
+      <img v-if="inputFlag" src="/image/search.svg" alt="" @click="fullSearch"/>
+      <img v-if="!inputFlag" src="/image/qrcode.svg" alt="" @click="fullSearch"/>
     </div>
   </div>
 </template>
@@ -36,10 +37,6 @@ export default {
       type: Array,
       required: true,
     },
-    rightIcons: {
-      type: Array,
-      required: true,
-    },
     placeholder: {
       type: String,
       default: "",
@@ -48,7 +45,7 @@ export default {
   data() {
     return {
       currentLeftIcon: 0,
-      currentRightIcon: 0,
+      inputFlag: false,
     }
   },
   methods: {
