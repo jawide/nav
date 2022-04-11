@@ -2,6 +2,7 @@ import axios from './plugins/axios'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import 'animate.css';
 import visual_div from './utils/visual_div'
 import format_str from './utils/format_str'
 import watch_win from './utils/watch_win'
