@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  nav-demo:
+    build:
+      context: .
+    image: nav-demo
+    restart: always
+    container_name: nav-demo
+    ports:
+      - "5555:80"
+      - "5556:443"
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - log:/var/log/nginx
+      - ssl:/ssl_certs
+
+volumes:
+  conf: {}
+  log: {}
+  ssl: {}
